@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Proposal</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #ff3366;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: #66ff66;
+        }
+        #yes:hover {
+            transform: scale(1.1);
+        }
+        #no {
+            background-color: #ff6666;
+            position: absolute;
+        }
+        #love-message {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            background-color: #339cffad;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Valentine? 💖</h1>
+    <div class="buttons">
+        <button id="yes" onclick="showLoveMessage()">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <div id="love-message">I know you say yes💕</div>
+    
+    <script>
+        document.addEventListener("mousemove", (event) => {
+            let noButton = document.getElementById("no");
+            let distanceX = event.clientX - noButton.offsetLeft;
+            let distanceY = event.clientY - noButton.offsetTop;
+            let moveX = (distanceX > 0 ? -1 : 1) * (Math.random() * 100 + 50);
+            let moveY = (distanceY > 0 ? -1 : 1) * (Math.random() * 100 + 50);
+            
+            noButton.style.left = `${noButton.offsetLeft + moveX}px`;
+            noButton.style.top = `${noButton.offsetTop + moveY}px`;
+        });
+        
+        function showLoveMessage() {
+            document.getElementById("love-message").style.display = "block";
+        }
+    </script>
+</body>
+</html>
